@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ruleset
+    name="apex-jwe"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd"
+>
+    <description>
+        Complexity rules with thresholds this library can be held to.
+
+        The class level totals are raised because the design of this library is deliberately
+        many small types with many small methods: JweBytes alone exposes twenty operations,
+        each of which validates its arguments, and the total says nothing about any of them.
+        The method level limits are what actually guard against a method growing a shape a
+        reader cannot follow, and those stay close to the defaults.
+    </description>
+
+    <rule ref="category/apex/design.xml/CyclomaticComplexity" name="JweCyclomaticComplexity">
+        <properties>
+            <property name="classReportLevel" value="120" />
+            <property name="methodReportLevel" value="14" />
+        </properties>
+    </rule>
+
+    <rule ref="category/apex/design.xml/CognitiveComplexity" name="JweCognitiveComplexity">
+        <properties>
+            <property name="classReportLevel" value="120" />
+            <property name="methodReportLevel" value="16" />
+        </properties>
+    </rule>
+</ruleset>

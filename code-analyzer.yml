@@ -1,0 +1,32 @@
+# Code Analyzer configuration for apex-jwe. Run it with:
+#
+#   sf code-analyzer run --workspace force-app
+#
+# Three PMD rules are adjusted here, each for a reason that holds for this repository and
+# would not necessarily hold for another one. Everything else runs as it comes.
+engines:
+    pmd:
+        custom_rulesets:
+            - config/pmd-ruleset.xml
+
+rules:
+    pmd:
+        # This library performs no SOQL, no DML and nothing that depends on sharing or on
+        # object permissions, so there is no user context for System.runAs to establish. The
+        # rule accounted for 121 of the 131 findings before this file existed.
+        ApexUnitTestClassShouldHaveRunAs:
+            tags: []
+
+        # The stock complexity rules are replaced by the tuned copies below, which keep the
+        # method level checks and raise the class totals. A custom ruleset rule has to be
+        # tagged Recommended to run in the default selection.
+        CyclomaticComplexity:
+            tags: []
+        CognitiveComplexity:
+            tags: []
+        JweCyclomaticComplexity:
+            tags:
+                - Recommended
+        JweCognitiveComplexity:
+            tags:
+                - Recommended

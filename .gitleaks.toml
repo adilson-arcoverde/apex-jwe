@@ -1,0 +1,30 @@
+# gitleaks configuration for apex-jwe.
+#
+# This repository publishes key material on purpose. A test suite for a cryptographic library
+# carries keys the way it carries vectors, and the ones here were generated for this repository,
+# are documented as throwaway in docs/TEST-VECTORS.md, and protect nothing.
+#
+#   gitleaks dir . --no-banner
+#   gitleaks git . --no-banner
+#
+# One thing to know before reading a clean run as proof of anything: gitleaks does not flag the
+# RSA private JWK in JweTestKeys, because a base64url JWK inside an Apex string literal matches
+# none of its rules. A clean run is not a statement that this repository holds no key material.
+# It holds three sets, all deliberate, all listed in docs/TEST-VECTORS.md.
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Throwaway RSA key pairs and the pre-shared AES key of the test suite"
+paths = [
+  '''force-app/main/default/classes/JweTestKeys\.cls''',
+  '''force-app/main/default/classes/JweTestTokens\.cls''',
+  '''scripts/generate-interop-vectors\.mjs''',
+]
+
+[[allowlists]]
+description = "Local consolidation scaffolding, ignored by git and never published"
+paths = [
+  '''^\.consolidacao/''',
+]

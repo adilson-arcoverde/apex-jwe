@@ -1,0 +1,38 @@
+# Salesforce CLI local state: per machine, per org, never shared.
+.sf/
+.sfdx/
+.localdevserver/
+
+# Node tooling. package.json and package-lock.json are tracked, because the interop vectors
+# and the Apex formatter have to be reproducible; what npm installs is not.
+node_modules/
+
+# Editor and operating system noise. Swap and backup files matter more than they look: an
+# editor session on a key file leaves a copy of that key behind.
+.vscode/
+.idea/
+*.swp
+*.swo
+.*.sw?
+*~
+.DS_Store
+
+# Local key material and the scripts that produce or consume it. keygen.mjs is kept out on
+# purpose: a test key that reaches a repository is a test key someone will eventually reuse in
+# earnest.
+keygen.mjs
+*.jwk.json
+*.pem
+*.key
+
+# Ad hoc local scripts: anonymous Apex snippets, one off decrypt helpers, throwaway
+# experiments. Anything meant to ship lives under scripts/ and is tracked.
+*.apex
+decrypt.mjs
+*.tmp.mjs
+*.local.mjs
+
+# Logs, environment and consolidation notes.
+*.log
+.env
+.consolidacao/

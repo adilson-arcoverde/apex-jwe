@@ -1,0 +1,12 @@
+{
+  "tabWidth": 4,
+  "useTabs": false,
+  "printWidth": 100,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "plugins": ["prettier-plugin-apex"],
+  "overrides": [
+    { "files": "*.{cls,trigger}", "options": { "parser": "apex" } },
+    { "files": "*.{md,json,yml,yaml}", "options": { "tabWidth": 2 } }
+  ]
+}

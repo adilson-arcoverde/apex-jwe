@@ -1,0 +1,16 @@
+{
+  "name": "apex-jwe-tooling",
+  "private": true,
+  "description": "Tooling for the apex-jwe library: interop vector generation with jose.",
+  "type": "module",
+  "scripts": {
+    "vectors": "node scripts/generate-interop-vectors.mjs",
+    "format": "prettier --write \"force-app/**/*.cls\"",
+    "format:check": "prettier --check \"force-app/**/*.cls\""
+  },
+  "devDependencies": {
+    "jose": "^6.2.0",
+    "prettier": "^3.9.6",
+    "prettier-plugin-apex": "^2.3.0"
+  }
+}

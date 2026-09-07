@@ -1,0 +1,8 @@
+apex-jwe
+Copyright 2026 Adilson Arcoverde
+
+Licensed under the Apache License, Version 2.0. See LICENSE.
+
+The modular arithmetic this library needs to do RSA in Apex descends from a
+public gist first published in 2016. No third party code is redistributed
+here, and the debt is recorded in THIRD_PARTY_NOTICES.md.
