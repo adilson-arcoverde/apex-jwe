@@ -238,6 +238,12 @@ it belongs.
 The test vectors are not ours either. They come from the RFCs listed above and from tokens
 generated with [jose](https://github.com/panva/jose) on Node.
 
+## Reporting a problem
+
+For anything with a security dimension, use GitHub's private vulnerability reporting from the
+Security tab rather than a public issue. [SECURITY.md](SECURITY.md) says what is in scope, what
+is not, and which limitations are documented rather than fixed.
+
 ## How this was written
 
 The code and the documents here were drafted with an AI assistant. The decisions were the
